@@ -61,8 +61,9 @@ namespace Microsoft.Azure.Commands.Batch
         [Parameter(Position = 2, ParameterSetName = ComputeNodeAndIdAndStreamParameterSet, Mandatory = true)]
         [Parameter(ParameterSetName = TaskAndIdAndPathParameterSet, Mandatory = true)]
         [Parameter(ParameterSetName = TaskAndIdAndStreamParameterSet, Mandatory = true)]
+        [Alias("Name")]
         [ValidateNotNullOrEmpty]
-        public string Name { get; set; }
+        public string Path { get; set; }
 
         [Parameter(Position = 0, ParameterSetName = Constants.InputObjectAndPathParameterSet, ValueFromPipeline = true)]
         [Parameter(Position = 0, ParameterSetName = Constants.InputObjectAndStreamParameterSet, ValueFromPipeline = true)]
@@ -86,7 +87,7 @@ namespace Microsoft.Azure.Commands.Batch
         public override void ExecuteCmdlet()
         {
             DownloadNodeFileOptions options = new DownloadNodeFileOptions(this.BatchContext, this.JobId, this.TaskId, this.PoolId,
-                this.ComputeNodeId, this.Name, this.InputObject, this.DestinationPath, this.DestinationStream, this.AdditionalBehaviors);
+                this.ComputeNodeId, this.Path, this.InputObject, this.DestinationPath, this.DestinationStream, this.AdditionalBehaviors);
 
             BatchClient.DownloadNodeFile(options);
         }

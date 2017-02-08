@@ -40,6 +40,8 @@ namespace Microsoft.Azure.Commands.Batch.Models
         
         private IList<PSResourceFile> resourceFiles;
         
+        private PSUserIdentity userIdentity;
+        
         public PSJobPreparationTask()
         {
             this.omObject = new Microsoft.Azure.Batch.JobPreparationTask();
@@ -190,15 +192,28 @@ namespace Microsoft.Azure.Commands.Batch.Models
             }
         }
         
-        public System.Boolean? RunElevated
+        public PSUserIdentity UserIdentity
         {
             get
             {
-                return this.omObject.RunElevated;
+                if (((this.userIdentity == null) 
+                            && (this.omObject.UserIdentity != null)))
+                {
+                    this.userIdentity = new PSUserIdentity(this.omObject.UserIdentity);
+                }
+                return this.userIdentity;
             }
             set
             {
-                this.omObject.RunElevated = value;
+                if ((value == null))
+                {
+                    this.omObject.UserIdentity = null;
+                }
+                else
+                {
+                    this.omObject.UserIdentity = value.omObject;
+                }
+                this.userIdentity = value;
             }
         }
         

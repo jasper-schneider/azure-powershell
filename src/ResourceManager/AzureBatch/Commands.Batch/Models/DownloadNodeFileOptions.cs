@@ -22,9 +22,9 @@ namespace Microsoft.Azure.Commands.Batch.Models
 {
     public class DownloadNodeFileOptions : NodeFileOperationParameters
     {
-        public DownloadNodeFileOptions(BatchAccountContext context, string jobId, string taskId, string poolId, string computeNodeId, string nodeFileName,
+        public DownloadNodeFileOptions(BatchAccountContext context, string jobId, string taskId, string poolId, string computeNodeId, string path,
             PSNodeFile nodeFile, string destinationPath, Stream stream, IEnumerable<BatchClientBehavior> additionalBehaviors = null)
-            : base(context, jobId, taskId, poolId, computeNodeId, nodeFileName, nodeFile, additionalBehaviors)
+            : base(context, jobId, taskId, poolId, computeNodeId, path, nodeFile, additionalBehaviors)
         {
             if (string.IsNullOrWhiteSpace(destinationPath) && stream == null)
             {

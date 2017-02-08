@@ -44,7 +44,7 @@
     <Reference Include="Hyak.Common">
       <HintPath>..\..\..\packages\Hyak.Common.1.0.3\lib\portable-net403+win+wpa81\Hyak.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Azure.Batch, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.Azure.Batch, Version=5.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Azure.Batch.5.1.2\lib\net45\Microsoft.Azure.Batch.dll</HintPath>
       <Private>True</Private>
     </Reference>
@@ -158,11 +158,16 @@
     <Compile Include="BatchAccounts\SetBatchAccountCommand.cs" />
     <Compile Include="ApplicationPackages\NewBatchApplicationPackageCommand.cs" />
     <Compile Include="Jobs\GetBatchJobStatisticsCommand.cs" />
+    <Compile Include="Models.Generated\PSAuthenticationTokenSettings.cs" />
+    <Compile Include="Models.Generated\PSAutoUserSpecification.cs" />
     <Compile Include="Models.Generated\PSExitCodeMapping.cs" />
     <Compile Include="Models.Generated\PSExitCodeRangeMapping.cs" />
     <Compile Include="Models.Generated\PSExitConditions.cs" />
     <Compile Include="Models.Generated\PSExitOptions.cs" />
     <Compile Include="Models.Generated\PSNetworkConfiguration.cs" />
+    <Compile Include="Models.Generated\PSOSDisk.cs" />
+    <Compile Include="Models.Generated\PSUserAccount.cs" />
+    <Compile Include="Models.Generated\PSUserIdentity.cs" />
     <Compile Include="Models\BatchClient.ApplicationPackages.cs" />
     <Compile Include="Models\NewBulkTaskParameters.cs" />
     <Compile Include="Models\PSApplicationPackage.cs" />
@@ -282,6 +287,7 @@
     <Compile Include="Models\NodeFileOperationParameters.cs" />
     <Compile Include="Models\PoolOperationParameters.cs" />
     <Compile Include="Models\PSBatchLocationQuotas.cs" />
+    <Compile Include="Models\PSNodeFile.cs" />
     <Compile Include="Models\PSPagedEnumerable.cs" />
     <Compile Include="Models.Generated\PSAutoPoolSpecification.cs" />
     <Compile Include="Models.Generated\PSAutoScaleRun.cs" />
