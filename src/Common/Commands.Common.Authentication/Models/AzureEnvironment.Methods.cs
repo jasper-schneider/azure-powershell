@@ -100,7 +100,8 @@ namespace Microsoft.Azure.Commands.Common.Authentication.Models
                         { AzureEnvironment.Endpoint.AzureKeyVaultServiceEndpointResourceId, AzureEnvironmentConstants.AzureKeyVaultServiceEndpointResourceId},
                         { AzureEnvironment.Endpoint.AzureDataLakeAnalyticsCatalogAndJobEndpointSuffix, AzureEnvironmentConstants.AzureDataLakeAnalyticsCatalogAndJobEndpointSuffix},
                         { AzureEnvironment.Endpoint.AzureDataLakeStoreFileSystemEndpointSuffix, AzureEnvironmentConstants.AzureDataLakeStoreFileSystemEndpointSuffix},
-                        { AzureEnvironment.Endpoint.GraphEndpointResourceId, AzureEnvironmentConstants.AzureGraphEndpoint}
+                        { AzureEnvironment.Endpoint.GraphEndpointResourceId, AzureEnvironmentConstants.AzureGraphEndpoint},
+                        { AzureEnvironment.Endpoint.BatchEndpointResourceId, AzureEnvironmentConstants.BatchEndpointResourceId }
                     }
                 }
             },
@@ -124,7 +125,8 @@ namespace Microsoft.Azure.Commands.Common.Authentication.Models
                         { AzureEnvironment.Endpoint.TrafficManagerDnsSuffix, AzureEnvironmentConstants.ChinaTrafficManagerDnsSuffix },
                         { AzureEnvironment.Endpoint.AzureKeyVaultDnsSuffix, AzureEnvironmentConstants.ChinaKeyVaultDnsSuffix },
                         { AzureEnvironment.Endpoint.AzureKeyVaultServiceEndpointResourceId, AzureEnvironmentConstants.ChinaKeyVaultServiceEndpointResourceId },
-                         { AzureEnvironment.Endpoint.GraphEndpointResourceId, AzureEnvironmentConstants.ChinaGraphEndpoint}
+                        { AzureEnvironment.Endpoint.GraphEndpointResourceId, AzureEnvironmentConstants.ChinaGraphEndpoint},
+                        { AzureEnvironment.Endpoint.BatchEndpointResourceId, AzureEnvironmentConstants.ChinaBatchEndpointResourceId }
                        // TODO: DataLakeAnalytics and ADL do not have a China endpoint yet. Once they do, add them here.
                     }
                 }
@@ -151,7 +153,8 @@ namespace Microsoft.Azure.Commands.Common.Authentication.Models
                         { AzureEnvironment.Endpoint.AzureKeyVaultServiceEndpointResourceId, AzureEnvironmentConstants.USGovernmentKeyVaultServiceEndpointResourceId},
                         { AzureEnvironment.Endpoint.AzureDataLakeAnalyticsCatalogAndJobEndpointSuffix, null},
                         { AzureEnvironment.Endpoint.AzureDataLakeStoreFileSystemEndpointSuffix, null},
-                        { AzureEnvironment.Endpoint.GraphEndpointResourceId, AzureEnvironmentConstants.USGovernmentGraphEndpoint }
+                        { AzureEnvironment.Endpoint.GraphEndpointResourceId, AzureEnvironmentConstants.USGovernmentGraphEndpoint },
+                        { AzureEnvironment.Endpoint.BatchEndpointResourceId, AzureEnvironmentConstants.USGovernmentBatchEndpointResourceId }
                     }
                 }
             },
@@ -175,7 +178,8 @@ namespace Microsoft.Azure.Commands.Common.Authentication.Models
                         { AzureEnvironment.Endpoint.TrafficManagerDnsSuffix, AzureEnvironmentConstants.GermanTrafficManagerDnsSuffix },
                         { AzureEnvironment.Endpoint.AzureKeyVaultDnsSuffix, AzureEnvironmentConstants.GermanKeyVaultDnsSuffix },
                         { AzureEnvironment.Endpoint.AzureKeyVaultServiceEndpointResourceId, AzureEnvironmentConstants.GermanAzureKeyVaultServiceEndpointResourceId },
-                        { AzureEnvironment.Endpoint.GraphEndpointResourceId, AzureEnvironmentConstants.GermanGraphEndpoint }
+                        { AzureEnvironment.Endpoint.GraphEndpointResourceId, AzureEnvironmentConstants.GermanGraphEndpoint },
+                        { AzureEnvironment.Endpoint.BatchEndpointResourceId, AzureEnvironmentConstants.GermanBatchEndpointResourceId }
                     }
                 }
             }
@@ -355,7 +359,9 @@ namespace Microsoft.Azure.Commands.Common.Authentication.Models
 
             AzureDataLakeStoreFileSystemEndpointSuffix,
 
-            GraphEndpointResourceId
+            GraphEndpointResourceId,
+
+            BatchEndpointResourceId
         }
     }
 
@@ -431,5 +437,10 @@ namespace Microsoft.Azure.Commands.Common.Authentication.Models
 
         public const string AzureDataLakeAnalyticsCatalogAndJobEndpointSuffix = "azuredatalakeanalytics.net";
         public const string AzureDataLakeStoreFileSystemEndpointSuffix = "azuredatalakestore.net";
+
+        public const string BatchEndpointResourceId = "https://batch.core.windows.net/";
+        public const string ChinaBatchEndpointResourceId = "https://batch.chinacloudapi.cn/";
+        public const string USGovernmentBatchEndpointResourceId = "https://batch.core.usgovcloudapi.net/";
+        public const string GermanBatchEndpointResourceId = "https://batch.cloudapi.de/";
     }
 }

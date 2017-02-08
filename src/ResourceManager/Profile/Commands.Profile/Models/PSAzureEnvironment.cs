@@ -61,6 +61,7 @@ namespace Microsoft.Azure.Commands.Profile.Models
                 environment.AzureKeyVaultDnsSuffix;
             newEnvironment.Endpoints[AzureEnvironment.Endpoint.AzureKeyVaultServiceEndpointResourceId] =
                 environment.AzureKeyVaultServiceEndpointResourceId;
+            newEnvironment.Endpoints[AzureEnvironment.Endpoint.BatchEndpointResourceId] = environment.BatchEndpointResourceId;
 
             return newEnvironment;
         }
@@ -179,6 +180,10 @@ namespace Microsoft.Azure.Commands.Profile.Models
                 AzureKeyVaultServiceEndpointResourceId =
                     environment.Endpoints[AzureEnvironment.Endpoint.AzureKeyVaultServiceEndpointResourceId];
             }
+            if (environment.IsEndpointSet(AzureEnvironment.Endpoint.BatchEndpointResourceId))
+            {
+                BatchEndpointResourceId = environment.Endpoints[AzureEnvironment.Endpoint.BatchEndpointResourceId];
+            }
         }
 
         /// <summary>
@@ -278,6 +283,11 @@ namespace Microsoft.Azure.Commands.Profile.Models
         public string AzureKeyVaultServiceEndpointResourceId { get; set; }
 
         /// <summary>
+        /// Gets or sets the Azure Batch AD resource ID.
+        /// </summary>
+        public string BatchEndpointResourceId { get; set; }
+
+        /// <summary>
         /// Determine equality of two PSAzureEnvironment instances.
         /// </summary>
         /// <param name="obj">The instance to compare.</param>
@@ -303,7 +313,8 @@ namespace Microsoft.Azure.Commands.Profile.Models
                        && SqlDatabaseDnsSuffix == other.SqlDatabaseDnsSuffix
                        && AzureDataLakeAnalyticsCatalogAndJobEndpointSuffix == other.AzureDataLakeAnalyticsCatalogAndJobEndpointSuffix
                        && AzureDataLakeStoreFileSystemEndpointSuffix == other.AzureDataLakeStoreFileSystemEndpointSuffix
-                       && TrafficManagerDnsSuffix == other.TrafficManagerDnsSuffix;
+                       && TrafficManagerDnsSuffix == other.TrafficManagerDnsSuffix
+                       && BatchEndpointResourceId == other.BatchEndpointResourceId;
             }
 
             return false;

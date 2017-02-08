@@ -82,7 +82,7 @@ namespace Microsoft.Azure.Commands.Batch.Test
         public static BatchAccountContext CreateBatchContextWithKeys()
         {
             BatchAccount resource = CreateAccountResource("account", "resourceGroup");
-            BatchAccountContext context = BatchAccountContext.ConvertAccountResourceToNewAccountContext(resource);
+            BatchAccountContext context = BatchAccountContext.ConvertAccountResourceToNewAccountContext(resource, null);
             string dummyKey = "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
             SetProperty(context, "PrimaryAccountKey", dummyKey);
             SetProperty(context, "SecondaryAccountKey", dummyKey);

@@ -104,6 +104,11 @@ namespace Microsoft.Azure.Commands.Profile
         [Alias("GraphEndpointResourceId", "GraphResourceId")]
         public string GraphAudience { get; set; }
 
+        [Parameter(Position = 19, Mandatory = false, ValueFromPipelineByPropertyName = true,
+          HelpMessage = "The Azure Batch AD resource ID.")]
+        [Alias("BatchResourceId")]
+        public string BatchEndpointResourceId { get; set; }
+
         protected override void BeginProcessing()
         {
             // do not call begin processing there is no context needed for this cmdlet
@@ -146,6 +151,7 @@ namespace Microsoft.Azure.Commands.Profile
                         AzureDataLakeStoreFileSystemEndpointSuffix;
                     newEnvironment.Endpoints[AzureEnvironment.Endpoint.AdTenant] = AdTenant;
                     newEnvironment.Endpoints[AzureEnvironment.Endpoint.GraphEndpointResourceId] = GraphAudience;
+                    newEnvironment.Endpoints[AzureEnvironment.Endpoint.BatchEndpointResourceId] = BatchEndpointResourceId;
                     WriteObject((PSAzureEnvironment)profileClient.AddOrSetEnvironment(newEnvironment));
                 });
         }

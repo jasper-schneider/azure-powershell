@@ -202,7 +202,8 @@ namespace Microsoft.Azure.Commands.ResourceManager.Profile.Test
                 StorageEndpoint = "https://StorageEndpoint",
                 SqlDatabaseDnsSuffix = "SqlDatabaseDnsSuffix",
                 TrafficManagerDnsSuffix = "TrafficManagerDnsSuffix",
-                GraphAudience = "GaraphAudience"
+                GraphAudience = "GaraphAudience",
+                BatchEndpointResourceId = "BatchResourceId"
             };
 
             cmdlet.InvokeBeginProcessing();
@@ -226,6 +227,7 @@ namespace Microsoft.Azure.Commands.ResourceManager.Profile.Test
             Assert.Equal(cmdlet.SqlDatabaseDnsSuffix, actual.SqlDatabaseDnsSuffix);
             Assert.Equal(cmdlet.TrafficManagerDnsSuffix, actual.TrafficManagerDnsSuffix);
             Assert.Equal(cmdlet.GraphAudience, actual.GraphEndpointResourceId);
+            Assert.Equal(cmdlet.BatchEndpointResourceId, actual.BatchEndpointResourceId);
             commandRuntimeMock.Verify(f => f.WriteObject(It.IsAny<PSAzureEnvironment>()), Times.Once());
             AzureEnvironment env = AzureRmProfileProvider.Instance.Profile.Environments["KaTaL"];
             Assert.Equal(env.Name, cmdlet.Name);
