@@ -73,10 +73,6 @@ namespace Microsoft.Azure.Commands.Batch
 
         [Parameter(ParameterSetName = JobIdAndSingleAddParameterSet)]
         [Parameter(ParameterSetName = JobObjectAndSingleAddParameterSet)]
-        public SwitchParameter RunElevated { get; set; }
-
-        [Parameter(ParameterSetName = JobIdAndSingleAddParameterSet)]
-        [Parameter(ParameterSetName = JobObjectAndSingleAddParameterSet)]
         public PSUserIdentity UserIdentity { get; set; }
 
         [Parameter(ParameterSetName = JobIdAndSingleAddParameterSet)]
@@ -125,15 +121,6 @@ namespace Microsoft.Azure.Commands.Batch
             }
             else
             {
-                if (this.RunElevated.IsPresent)
-                {
-                    WriteWarning("The RunElevated parameter is obsolete as of 02/2017 and will be removed in a future release. Use the UserIdentity parameter instead.");
-                    if (this.UserIdentity == null)
-                    {
-                        this.UserIdentity = new PSUserIdentity(new PSAutoUserSpecification(Azure.Batch.Common.AutoUserScope.Task, Azure.Batch.Common.ElevationLevel.Admin));
-                    }
-                }
-
                 NewTaskParameters parameters = new NewTaskParameters(this.BatchContext, this.JobId, this.Job,
                     this.Id, this.AdditionalBehaviors)
                 {
